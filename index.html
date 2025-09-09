@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gift for You 🎁</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: black;
+      height: 100vh;
+      width: 100vw;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+
+    .star {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: violet;
+      animation: twinkle 1.5s infinite alternate;
+    }
+
+    @keyframes twinkle {
+      0% { opacity: 0.2; background: violet; }
+      50% { opacity: 1; background: white; }
+      100% { opacity: 0.5; background: pink; }
+    }
+
+    .rocket {
+      position: absolute;
+      left: -50px;
+      top: 70%;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(to top, red, orange);
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      animation: fly 5s linear forwards;
+    }
+
+    @keyframes fly {
+      0% { left: -60px; top: 70%; }
+      100% { left: 110%; top: 20%; }
+    }
+
+    .message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      color: #ffcce6;
+      opacity: 0;
+      text-shadow: 0 0 10px #ff99cc, 0 0 20px #ff66cc;
+      animation: appear 3s ease forwards;
+      animation-delay: 2.5s;
+    }
+
+    @keyframes appear {
+      0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+      100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const starCount = 100;
+    for (let i = 0; i < starCount; i++) {
+      let star = document.createElement("div");
+      star.className = "star";
+      star.style.top = Math.random() * window.innerHeight + "px";
+      star.style.left = Math.random() * window.innerWidth + "px";
+      star.style.animationDuration = (1 + Math.random() * 2) + "s";
+      document.body.appendChild(star);
+    }
+  </script>
+
+  <div class="rocket"></div>
+
+  <div class="message">I love you nownow 💖 you are my cutie girl</div>
+</body>
+</html>
